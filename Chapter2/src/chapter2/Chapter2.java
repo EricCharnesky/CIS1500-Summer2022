@@ -1,5 +1,7 @@
 package chapter2;
 
+import java.util.Scanner;
+
 public class Chapter2 {
     public static void main(String[] args) {
 
@@ -102,5 +104,26 @@ public class Chapter2 {
         System.out.println("$1    Coffee");
         System.out.println("$1.5  Espresso");
         System.out.println("$2    Latte");
+
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("Please enter your name");
+        String name = keyboard.nextLine();
+
+        System.out.println("Hi there " + name);
+
+        System.out.println("How many coffees do you want to buy today?");
+        // don't use nextInt() - it causes problems later
+        // int coffeesForToday = keyboard.nextInt();
+
+        // I always recommend Integer.parseInt
+        int coffeesForToday = Integer.parseInt(keyboard.nextLine());
+
+        System.out.println("How much does a coffee cost?");
+        double costPerCoffee = Double.parseDouble(keyboard.nextLine());
+
+        System.out.println("That will cost you $" + coffeesForToday * costPerCoffee);
+
+
     }
 }
