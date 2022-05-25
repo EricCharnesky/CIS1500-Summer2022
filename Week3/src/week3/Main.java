@@ -1,5 +1,7 @@
 package week3;
 
+import java.text.NumberFormat;
+
 public class Main {
     public static void main(String[] args) {
         byte smallNumberMin = -128;
@@ -93,6 +95,53 @@ public class Main {
 
         myFavoriteNumber -= 1;
         myFavoriteNumber--; // decrement operator
+
+        // implicit casting
+        double myDoubleNumber = 7;
+
+        // a smaller type will implicitly cast into the larger type
+        // byte->short->int->long->float->double
+
+        // explicit casting is telling java please convert
+        int myIntegerValue = (int)4.2;
+
+        double decimalResult = (double)myIntegerValue / myFavoriteNumber;
+
+        System.out.println(decimalResult);
+
+        int value = Integer.parseInt("42");
+
+        int roundedValue = (int)Math.round(4.2);
+
+        System.out.println(roundedValue);
+
+        double powerOfTwoToTheSeventh = Math.pow(2, 7);
+
+        System.out.println(powerOfTwoToTheSeventh);
+
+        double squareRootOf7 = Math.sqrt(7);
+
+        System.out.println(squareRootOf7);
+
+        int minValue = Math.min(10, 20);
+
+        // random gives 0-1 not including 1, so multiply by the max, add 1
+        // range of 1-max
+        int randomValue = (int)(Math.random() * 10 + 1);
+
+        // random() * total numbers in range + min
+        int randomNumber10To20 = (int)(Math.random() * 11 + 10);
+
+        System.out.println(randomNumber10To20);
+
+        double pi = Math.PI;
+
+        NumberFormat numberFormat = NumberFormat.getNumberInstance();
+        numberFormat.setMaximumFractionDigits(7);
+
+        String piToSevenDigits = numberFormat.format(pi);
+
+        System.out.println(piToSevenDigits);
 
     }
 }
