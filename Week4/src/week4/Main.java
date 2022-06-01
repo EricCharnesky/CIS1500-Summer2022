@@ -92,15 +92,15 @@ public class Main {
         System.out.println("Enter your favorite number");
         int favoriteNumber = Integer.parseInt(keyboard.nextLine());
 
-        if ( favoriteNumber > 0 && favoriteNumber < 10){
+        if (favoriteNumber > 0 && favoriteNumber < 10) {
             System.out.println("You like single digits");
-        } else if ( favoriteNumber >= 10 && favoriteNumber < 100 ){
+        } else if (favoriteNumber >= 10 && favoriteNumber < 100) {
             System.out.println("You like two digit numbers");
-        } else{
+        } else {
             System.out.println("You like big numbers");
         }
 
-        switch (favoriteNumber){
+        switch (favoriteNumber) {
             case 1:
             case 2:
             case 3:
@@ -111,6 +111,54 @@ public class Main {
             case 8:
             case 9:
                 System.out.println("You like single digits");
+        }
+
+        int number = 0;
+
+        while (number < 10) {
+            System.out.println(number);
+            number++;
+        }
+
+        int anotherNumber = 0;
+        do{
+            System.out.println(anotherNumber);
+            anotherNumber++;
+        } while (anotherNumber < 10);
+
+        int thirdNumber = 0;
+//        while ( thirdNumber < 10);{
+//            System.out.println(thirdNumber);
+//            thirdNumber++;
+//        }
+
+
+        // declaration; test; update;
+        for ( int value = 0; value < 10; value++ ){
+            System.out.println(value);
+        }
+
+        // validation loop - only ends when we have a valid input
+        String pillColor = "";
+
+        while ( !pillColor.equalsIgnoreCase("blue") &&
+                !pillColor.equalsIgnoreCase("red")){
+            System.out.println("Do you want the blue bill or the red pill?");
+            pillColor = keyboard.nextLine();
+        }
+
+        System.out.println("Enter the width of a rectangle");
+        int width = Integer.parseInt(keyboard.nextLine());
+
+        System.out.println("Enter the height of a rectangle");
+        int height = Integer.parseInt(keyboard.nextLine());
+
+        for ( int currentRow = 0; currentRow < height; currentRow++ ){
+            for ( int currentColumn = 0; currentColumn < width; currentColumn++){
+                // System.out.print doesn't add a newline after printing
+                System.out.print("*");
+            }
+            System.out.println();
         }
     }
 }
