@@ -6,28 +6,47 @@ public class Chair {
     private int minimumHeightInCentimeters;
     private int maximumHeightInCentimeters;
 
+    // constructor method - has no return type
+    // constructors job is to construct the object - give values to the attributes
+    // no argument constructor - default constructor
+//    public Chair() {
+//        color = "";
+//        hasArms = false;
+//        heightInCentimeters = 0;
+//        minimumHeightInCentimeters = 0;
+//        maximumHeightInCentimeters = 0;
+//    }
+
+    public Chair(String color, boolean hasArms, int heightInCentimeters,
+                 int minimumHeightInCentimeters, int maximumHeightInCentimeters) {
+        this.color = color;
+        this.hasArms = hasArms;
+        this.heightInCentimeters = heightInCentimeters;
+        this.minimumHeightInCentimeters = minimumHeightInCentimeters;
+        this.maximumHeightInCentimeters = maximumHeightInCentimeters;
+        validateChairHeight();
+    }
+
     public int getMinimumHeightInCentimeters() {
         return minimumHeightInCentimeters;
     }
 
-    public void setMinimumHeightInCentimeters(int minimumHeightInCentimeters) {
-        this.minimumHeightInCentimeters = minimumHeightInCentimeters;
-    }
+    // don't want access for someone to change this
+//    public void setMinimumHeightInCentimeters(int minimumHeightInCentimeters) {
+//        this.minimumHeightInCentimeters = minimumHeightInCentimeters;
+//    }
 
     public int getMaximumHeightInCentimeters() {
         return maximumHeightInCentimeters;
     }
 
-    public void setMaximumHeightInCentimeters(int maximumHeightInCentimeters) {
-        this.maximumHeightInCentimeters = maximumHeightInCentimeters;
-    }
+// don't want this to be changeable
+//    public void setMaximumHeightInCentimeters(int maximumHeightInCentimeters) {
+//        this.maximumHeightInCentimeters = maximumHeightInCentimeters;
+//    }
 
-    public String getColor(){
+    public String getColor() {
         return color;
-    }
-
-    public void setColor(String color){
-        this.color = color;
     }
 
     public boolean hasArms() {
@@ -42,11 +61,16 @@ public class Chair {
         return heightInCentimeters;
     }
 
-    public void adjustChairHeight(int centimetersToAdjust){
+    public void adjustChairHeight(int centimetersToAdjust) {
         heightInCentimeters += centimetersToAdjust;
-        if ( heightInCentimeters > maximumHeightInCentimeters){
+        validateChairHeight();
+    }
+
+    // private - means you can't use it OUTSIDE of the class
+    private void validateChairHeight(){
+        if (heightInCentimeters > maximumHeightInCentimeters) {
             heightInCentimeters = maximumHeightInCentimeters;
-        } else if ( heightInCentimeters < minimumHeightInCentimeters){
+        } else if (heightInCentimeters < minimumHeightInCentimeters) {
             heightInCentimeters = minimumHeightInCentimeters;
         }
     }
